@@ -13,3 +13,7 @@ int main(){
 //g++ == invokes C++ compiler
 //-c == makes file of object code
 //-o == makes an executable project
+
+//git add .
+//git commit -m committed
+//git push
