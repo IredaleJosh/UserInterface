@@ -11,11 +11,25 @@ using namespace std;
 //& == means both are references, as function will change them
 
 void read_data(istream& input, vector<float>& data){
-    //
+    
     float value;
+    //input >> value == reads a single numerica value into "value"
+    //repeats until fail e.g. end of the file
     while (input >> value){
+        //puts the value into the data vector
         data.push_back(value);
     }
+}
+
+//const == being used for efficiency rather than to change it
+//makes function more efficient
+float mean_value(const vector<float>& average){
+
+    float average_value = 0;
+    for(int i=0; i<=average.size();i++){
+        average_value += average[i];
+    }
+    return average_value/average.size();
 }
 
 //argc == arguement count --> n0. of arguements
@@ -36,6 +50,12 @@ int main(int argc, char* argv[]){
         return 2;
     }
     vector<float> data;
+    float mean;
     read_data(infile, data);
+    mean = mean_value(data);
+    //.size() gets the size of the vector
+        //find more in lecture 1 slides
+    cout << data.size() << " read from the file" << endl;
+    cout << "Mean value = " << mean << endl;
     return 0;    
 }
